@@ -1,0 +1,17 @@
+<%= turbo_frame_tag dom_id(todo) do %>
+  <div class="w-full flex py-2 pl-5.5 pr-3 justify-between items-center gap-4 rounded-lg shadow-sm border border-gray-200">
+    <p class="text-gray-900 text-sm"><%= todo.description %></p>
+
+    <div class="flex items-center gap-2">
+      <%= link_to "Edit", edit_todo_path(todo), class: "px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 select-none cursor-default" %>
+
+      <%=
+        button_to "Remove",
+                  todo,
+                  method: :delete,
+                  data: { turbo_confirm: "Are you sure you want to remove this todo?" },
+                  class: "px-4 py-2 text-sm font-medium text-white bg-red-600 border rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-200 select-none"
+      %>
+    </div>
+  </div>
+<% end %>

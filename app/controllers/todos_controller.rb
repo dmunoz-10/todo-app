@@ -1,0 +1,73 @@
+class TodosController < ApplicationController
+  before_action :todo, only: %i[show edit]
+
+  # GET /todos or /todos.json
+  def index
+    @todos = Todo.order(:created_at)
+    @todo = Todo.new
+  end
+
+  # GET /todos/1 or /todos/1.json
+  def show
+  end
+
+  # GET /todos/new
+  def new
+    @todo = Todo.new
+  end
+
+  # GET /todos/1/edit
+  def edit
+  end
+
+  # POST /todos or /todos.json
+  def create
+    @todo = Todo.new(todo_params)
+
+    respond_to do |format|
+      if @todo.save
+        format.turbo_stream
+        format.html { redirect_to todo_path, notice: "Todo was successfully created." }
+        format.json { render :show, status: :created, location: @todo }
+      else
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @todo.errors, status: :unprocessable_content }
+      end
+    end
+  end
+
+  # PATCH/PUT /todos/1 or /todos/1.json
+  def update
+    respond_to do |format|
+      if todo.update(todo_params)
+        format.html { redirect_to todos_path, notice: "Todo was successfully updated.", status: :see_other }
+        format.json { render :show, status: :ok, location: todo }
+      else
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: todo.errors, status: :unprocessable_content }
+      end
+    end
+  end
+
+  # DELETE /todos/1 or /todos/1.json
+  def destroy
+    todo.destroy!
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to todos_path, notice: "todo was successfully destroyed.", status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def todo
+    @todo ||= Todo.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def todo_params
+    params.expect(todo: %i[description])
+  end
+end

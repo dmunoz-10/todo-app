@@ -1,0 +1,11 @@
+<div class="w-full flex flex-col gap-6">
+  <h1 class="font-bold text-4xl">Todos</h1>
+
+  <%= turbo_frame_tag "todos", class: "flex flex-col gap-2" do %>
+    <%= render @todos %>
+  <% end %>
+
+  <%= turbo_frame_tag dom_id(@todo) do %>
+    <%= render partial: "todos/new_button" %>
+  <% end %>
+</div>

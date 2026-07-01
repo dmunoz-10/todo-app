@@ -80,6 +80,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Hot reloading for Hotwire [https://github.com/hotwired/spark]
+  gem "hotwire-spark", ">= 0.1.13"
 end
 
 group :test do
