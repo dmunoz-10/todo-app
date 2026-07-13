@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@custom-variant mobile-app {
+  html[data-hotwire-native] & {
+    @slot
+  }
+}
+
+@custom-variant web-app {
+  html:not([data-hotwire-native]) & {
+    @slot
+  }
+}

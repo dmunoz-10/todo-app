@@ -1,9 +1,9 @@
 <div class="w-full py-1.5 px-3 rounded-lg shadow-sm border border-gray-200">
-  <%= form_with(model: todo, class: "flex justify-between items-center gap-4") do |form| %>
-    <%= form.text_field :description, placeholder: "Enter a brief description", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5", required: true %>
+  <%= form_with(model: todo, class: "flex flex-col md:flex-row justify-between items-center gap-4") do |form| %>
+    <%= form.text_field :description, placeholder: "Enter a brief description", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-center md:text-left", required: true %>
 
     <div class="flex items-center gap-2">
-      <%= link_to "Cancel", root_path, class: "px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" %>
+      <%= link_to "Cancel", root_path, class: "px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 cursor-default" %>
 
       <%= form.submit "Save", class: "px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300" %>
     </div>
