@@ -10,6 +10,7 @@
 #                                          PATCH  /todos/:id(.:format)                                                                              todos#update
 #                                          PUT    /todos/:id(.:format)                                                                              todos#update
 #                                          DELETE /todos/:id(.:format)                                                                              todos#destroy
+#                              about_index GET    /about(.:format)                                                                                  about#index
 #                                     root GET    /                                                                                                 todos#index
 #         turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
 #         turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   resources :todos
+  resources :about, only: %i[index]
 
   # Defines the root path route ("/")
   root "todos#index"

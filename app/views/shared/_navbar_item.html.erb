@@ -1,0 +1,8 @@
+<% active_classes = "block py-2 px-3 text-black text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0" %>
+<% not_active_classes = "block py-2 px-3 text-gray-500 hover:text-black text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0" %>
+
+<li>
+  <%= link_to item[:name],
+              item[:url],
+              class: item[:active?] ? active_classes : not_active_classes %>
+</li>
