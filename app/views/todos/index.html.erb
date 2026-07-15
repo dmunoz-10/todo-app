@@ -1,5 +1,7 @@
 <% content_for :title, "Todos" %>
 
+<%= turbo_stream_from "todos" %>
+
 <div class="w-full flex flex-col gap-6">
   <h1 class="font-bold text-4xl mobile-app:hidden">Todos</h1>
 

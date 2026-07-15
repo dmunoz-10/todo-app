@@ -21,8 +21,14 @@ default: &default
 
 
 development:
-  <<: *default
-  database: todo_app_mobile_development
+  primary:
+    <<: *default
+    database: todo_app_mobile_development
+
+  cable:
+    <<: *default
+    database: todo_app_mobile_development_cable
+    migrations_paths: db/cable_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
