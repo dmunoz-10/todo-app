@@ -52,6 +52,9 @@ Rails.application.routes.draw do
 
   resources :todos
   resources :about, only: %i[index]
+  resources :configurations, only: [] do
+    get :ios_v1, on: :collection
+  end
 
   # Defines the root path route ("/")
   root "todos#index"
