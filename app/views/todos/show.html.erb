@@ -1,4 +1,4 @@
-<% content_for :title, "Todos" %>
+<% content_for(:hide_native_title, true) %>
 
 <div class="w-full flex flex-col gap-5">
   <%= link_to sanitize("&larr; Back to todos"), root_path, class: "mobile-app:hidden" %>
