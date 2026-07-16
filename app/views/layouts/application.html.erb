@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html <%= "data-hotwire-native" if hotwire_native_app? %>>
   <head>
-    <% if hotwire_native_app? && content_for(:hide_native_title) %>
-      <%# Leave blank so the native app shows no title text %>
-    <% else %>
+    <% if !hotwire_native_app? || !content_for(:hide_native_title) %>
       <title><%= content_for(:title) || "Todo App Mobile" %></title>
     <% end %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
