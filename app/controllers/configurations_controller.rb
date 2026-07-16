@@ -9,7 +9,9 @@ class ConfigurationsController < ApplicationController
             "/edit$"
           ],
           properties: {
-            context: "modal"
+            context: "modal",
+            show_close_button: true,
+            show_submit_button: true
           }
         }
       ]

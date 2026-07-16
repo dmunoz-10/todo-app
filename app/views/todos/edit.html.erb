@@ -1,3 +1,5 @@
-<%= turbo_frame_tag dom_id(@todo) do %>
+<%= content_for :title, "Edit" %>
+
+<%= turbo_frame_tag dom_id(@todo), class: "w-full" do %>
   <%= render "form", todo: @todo %>
 <% end %>
