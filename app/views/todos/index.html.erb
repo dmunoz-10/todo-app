@@ -9,7 +9,7 @@
     <%= render @todos %>
   <% end %>
 
-  <%= turbo_frame_tag dom_id(@todo) do %>
+  <%= turbo_frame_tag dom_id(@todo), class: "mobile-app:order-first" do %>
     <%= render partial: "todos/new_button" %>
   <% end %>
 </div>
